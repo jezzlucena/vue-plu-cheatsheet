@@ -1,53 +1,56 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
-import csv from './commodities.csv'
+import json from './commodities.json'
 import Fuse from 'fuse.js';
-import { computed, ref } from 'vue';
+import { ref, type Ref } from 'vue';
 
 const commodities: Commodity[] = [];
 const commodityDict: { [id: string] : Variety[] } = {};
-const searchQuery = ref('4238');
+const searchQuery = ref('');
+const searchResults: Ref<Fuse.FuseResult<Variety>[]> = ref([]);
 
-const fuse = new Fuse(csv, {
+const nameFuse = new Fuse(json, {
   threshold: 0.25,
-  keys: [
-    {
-      name: 'plu', 
-      weight: 3
-    },
-    {
-      name: 'commodity', 
-      weight: 1
-    },
-    {
-      name: 'variety', 
-      weight: 1
-    },
-    {
-      name: 'aka',
-      weight: 1
-    },
-  ]
+  keys: [{
+    name: 'commodity',
+    weight: 3
+  }, {
+    name: 'variety',
+    weight: 1
+  }, {
+    name: 'aka',
+    weight: 1
+  }],
+  includeScore: true
 });
 
-const searchResults = computed(() => {
-  if (searchQuery.value === '') {
-    return csv;
+const pluFuse = new Fuse(json, {
+  threshold: 0.25,
+  keys: ['plu'],
+  includeScore: true
+});
+
+function handleInput() {
+  if (searchQuery.value?.length > 3) {
+    if (!isNaN(parseFloat(searchQuery.value)) && isFinite(Number(searchQuery.value))) {
+      searchResults.value = pluFuse.search(searchQuery.value);
+    } else {
+      searchResults.value = nameFuse.search(searchQuery.value);
+    }
   } else {
-    return fuse.search(searchQuery.value);
+    searchResults.value = [];
   }
-});
+  console.log(searchResults.value);
+}
 
-console.log(searchResults.value)
+for (const variety of json) {
+  if (!commodityDict[variety.commodity]) commodityDict[variety.commodity] = [];
 
-for (const variety of searchResults.value) {
-  if (!commodityDict[variety.item.commodity]) commodityDict[variety.item.commodity] = [];
-
-  commodityDict[variety.item.commodity].push({
-    plu: variety.item.plu,
-    name: variety.item.variety ? variety.item.variety : variety.item.commodity,
-    size: variety.item.size
+  commodityDict[variety.commodity].push({
+    plu: `${variety.plu}`,
+    name: variety.variety ? variety.variety : variety.commodity,
+    size: variety.size
   });
 }
 
@@ -64,14 +67,14 @@ for (const commodityKey in commodityDict) {
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
+      <HelloWorld />
 
-    <input type="text" v-model="searchQuery">
+      <input type="text" v-model="searchQuery" @input="handleInput" placeholder="Search by name or PLU...">
+    </div>
   </header>
 
   <main>
-    <TheWelcome :commodities="commodities"/>
+    <TheWelcome :commodities="commodities" :searchResults="searchResults"/>
   </main>
 </template>
 
@@ -85,25 +88,23 @@ header {
   margin: 0 auto 2rem;
 }
 
+main {
+  margin: 1rem 0;
+}
+
+input {
+  width: 100%;
+  line-height: 1.5;
+  margin: 1rem 0;
+}
+
+main {
+  columns: 2;
+}
+
 @media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
   main {
-    height: 100vh;
+    columns: 3;
   }
 }
 </style>

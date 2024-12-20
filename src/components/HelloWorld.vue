@@ -1,17 +1,9 @@
-<script setup lang="ts">
-defineProps<{
-  msg: string
-}>()
-</script>
-
 <template>
   <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
-    <h3>
-      You’ve successfully created a project with
-      <a href="https://vite.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
-    </h3>
+    <h1 class="green">PLU Cheat Sheet</h1>
+    <h4>Powered by the
+      <a href="https://www.ifpsglobal.com/plu-codes-search" target="_blank" rel="noopener">International Federation for Produce Standards' PLU Catalog.</a>
+    </h4>
   </div>
 </template>
 
@@ -28,14 +20,8 @@ h3 {
 }
 
 .greetings h1,
-.greetings h3 {
+.greetings h3,
+.greetings h4 {
   text-align: center;
-}
-
-@media (min-width: 1024px) {
-  .greetings h1,
-  .greetings h3 {
-    text-align: left;
-  }
 }
 </style>
