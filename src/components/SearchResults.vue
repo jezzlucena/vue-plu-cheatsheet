@@ -10,19 +10,25 @@ defineProps<{
 <template>
   <div v-if="!searchResults">
     <div class="item" v-for="commodity in commodities" :key="commodity.name">
-      <div class="details">
-        <h3>{{ commodity.name.toLowerCase() }}</h3>
+      <h3>{{ commodity.name }}</h3>
 
-        <ul>
-          <li v-for="entry in commodity.varieties" :key="entry.plu">{{ entry.plu }} - {{ entry.variety }}</li>
-        </ul>
-      </div>
+      <ul>
+        <li v-for="entry in commodity.varieties" :key="entry.plu">
+          <div class="info">
+            <div class="name">{{ entry.variety }}</div>
+            <div class="plu">{{ entry.plu }}</div>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 
   <ul v-if="(searchResults?.length || 0) > 0">
-    <li v-for="entry in searchResults" :key="entry.item.plu" class="searchResult">
-      <div>{{ entry.item.plu }} - {{ entry.item.commodity }} {{ entry.item.variety }}</div>
+    <li v-for="entry in searchResults" :key="entry.item.plu" class="item">
+      <div class="info">
+        <div class="name">{{ entry.item.commodity }} {{ entry.item.variety }}</div>
+        <div class="plu">{{ entry.item.plu }}</div>
+      </div>
       <div>
         <span v-if="!!entry.item.aka" class="aka">Aka {{ entry.item.aka }} | </span>
         <span class="match">{{ Math.ceil((1 - (entry.score || 0)) * 100) }}%</span>
@@ -35,29 +41,6 @@ defineProps<{
 
 <style scoped>
 .item {
-  margin-bottom: 2rem;
-  display: flex;
-  position: relative;
-  break-inside: avoid;
-}
-
-.details {
-  flex: 1;
-}
-
-h3 {
-  font-size: 1.2rem;
-  font-weight: 500;
-  margin-bottom: 0.4rem;
-  color: var(--color-heading);
-  text-transform: capitalize;
-}
-
-li {
-  margin-bottom: 0.5rem;
-}
-
-li.searchResult {
   break-inside: avoid;
 
   .aka, .match {
@@ -68,6 +51,41 @@ li.searchResult {
     content: ' Match';
     margin-left: 0.2rem;
     display: inline-block;
+  }
+}
+
+.info {
+  display: flex;
+  position: relative;
+
+  .plu {
+    text-align: right;
+    flex-grow: 1;
+    margin-left: 1rem;
+  }
+}
+
+h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  color: var(--color-heading);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0 2rem 0 0;
+
+  li {
+    padding: 0.5rem 0;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    &:last-child {
+      margin-bottom: 1rem;
+    }
   }
 }
 </style>

@@ -104,9 +104,20 @@ main {
 }
 
 input {
+  position: relative;
   width: 100%;
   line-height: 1.5;
   margin: 1rem 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/55/Magnifying_glass_icon.svg');
+  background-repeat: no-repeat;
+  background-position: 14px 14px;
+  background-size: 18px;
+  padding: 12px 20px 12px 40px;
 }
 
 @media (min-width: 800px) {
