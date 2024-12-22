@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import AppHeader from './components/AppHeader.vue'
+import SearchResults from './components/SearchResults.vue'
 import json from './commodities.json'
 import Fuse from 'fuse.js';
 import { ref, type Ref } from 'vue';
@@ -8,7 +8,7 @@ import { ref, type Ref } from 'vue';
 const commodities: Commodity[] = [];
 const commodityDict: { [id: string] : Variety[] } = {};
 const searchQuery = ref('');
-const searchResults: Ref<Fuse.FuseResult<Variety>[]> = ref([]);
+const searchResults: Ref<Fuse.FuseResult<Variety>[] | undefined> = ref();
 
 const nameFuse = new Fuse(json, {
   threshold: 0.25,
@@ -39,7 +39,7 @@ function handleInput() {
       searchResults.value = nameFuse.search(searchQuery.value);
     }
   } else {
-    searchResults.value = [];
+    searchResults.value = undefined;
   }
 }
 
@@ -56,6 +56,16 @@ for (const entry of json) {
 }
 
 for (const commodityKey in commodityDict) {
+  commodityDict[commodityKey].sort((a, b) => {
+    if (a.variety > b.variety) {
+      return 1;
+    } else if (b.variety > a.variety) {
+      return -1;
+    }
+
+    return 0;
+  });
+
   commodities.push({
     name: commodityKey,
     varieties: commodityDict[commodityKey]
@@ -68,14 +78,14 @@ for (const commodityKey in commodityDict) {
     <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld />
+      <AppHeader />
 
       <input type="text" v-model="searchQuery" @input="handleInput" placeholder="Search by name or PLU...">
     </div>
   </header>
 
   <main>
-    <TheWelcome :commodities="commodities" :searchResults="searchResults"/>
+    <SearchResults :commodities="commodities" :searchResults="searchResults"/>
   </main>
 </template>
 
