@@ -41,16 +41,17 @@ function handleInput() {
   } else {
     searchResults.value = [];
   }
-  console.log(searchResults.value);
 }
 
-for (const variety of json) {
-  if (!commodityDict[variety.commodity]) commodityDict[variety.commodity] = [];
+for (const entry of json) {
+  if (!commodityDict[entry.commodity]) commodityDict[entry.commodity] = [];
 
-  commodityDict[variety.commodity].push({
-    plu: `${variety.plu}`,
-    name: variety.variety ? variety.variety : variety.commodity,
-    size: variety.size
+  commodityDict[entry.commodity].push({
+    plu: `${entry.plu}`,
+    variety: entry.variety,
+    size: entry.size,
+    aka: entry.aka,
+    commodity: entry.commodity
   });
 }
 
@@ -98,8 +99,10 @@ input {
   margin: 1rem 0;
 }
 
-main {
-  columns: 2;
+@media (min-width: 800px) {
+  main {
+    columns: 2;
+  }
 }
 
 @media (min-width: 1024px) {

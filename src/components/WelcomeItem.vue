@@ -1,8 +1,5 @@
 <template>
   <div class="item">
-    <i>
-      <slot name="icon"></slot>
-    </i>
     <div class="details">
       <h3>
         <slot name="heading"></slot>
@@ -14,23 +11,14 @@
 
 <style scoped>
 .item {
-  margin-top: 2rem;
+  margin-bottom: 2rem;
   display: flex;
   position: relative;
+  break-inside: avoid;
 }
 
 .details {
   flex: 1;
-}
-
-i {
-  display: flex;
-  place-items: center;
-  place-content: center;
-  width: 32px;
-  height: 32px;
-
-  color: var(--color-text);
 }
 
 h3 {
@@ -39,36 +27,5 @@ h3 {
   margin-bottom: 0.4rem;
   color: var(--color-heading);
   text-transform: capitalize;
-}
-
-@media (min-width: 1024px) {
-  .item {
-    margin-top: 0;
-    padding: 0.4rem 0 1rem calc(var(--section-gap) / 3);
-  }
-
-  i {
-    top: 0;
-    left: -26px;
-    position: absolute;
-    border: 1px solid var(--color-border);
-    background: var(--color-background);
-    border-radius: 8px;
-    width: 50px;
-    height: 50px;
-  }
-
-  .item:after {
-    content: ' ';
-    border-left: 1px solid var(--color-border);
-    position: absolute;
-    left: 0;
-    top: 50px;
-    height: calc(100% - 25px);
-  }
-
-  .item:last-of-type:after {
-    display: none;
-  }
 }
 </style>

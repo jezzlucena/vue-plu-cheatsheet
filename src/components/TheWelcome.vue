@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import WelcomeItem from './WelcomeItem.vue'
-import DocumentationIcon from './icons/IconDocumentation.vue'
 import Fuse from 'fuse.js';
 
 defineProps<{
@@ -12,21 +11,18 @@ defineProps<{
 <template>
   <div v-if="!searchResults || searchResults.length === 0">
     <WelcomeItem v-for="commodity in commodities" :key="commodity.name">
-      <template #icon>
-        <DocumentationIcon />
-      </template>
       <template #heading>{{ commodity.name.toLowerCase() }}</template>
 
       <ul>
-        <li v-for="variety in commodity.varieties" :key="variety.plu">{{ variety.plu }} - {{ variety.name }}</li>
+        <li v-for="entry in commodity.varieties" :key="entry.plu">{{ entry.plu }} - {{ entry.variety }}</li>
       </ul>
     </WelcomeItem>
   </div>
 
   <ul v-if="!!searchResults && searchResults.length > 0">
-    <li v-for="variety in searchResults" :key="variety.item.plu">
-      <div>{{ variety.item.plu }} - {{ variety.item.commodity }} {{ variety.item.variety }} | Match: {{ Math.ceil((1 - (variety.score || 0)) * 100) }}%</div>
-      <div v-if="!!variety.item.aka">Aka.: {{ variety.item.aka }}</div>
+    <li v-for="entry in searchResults" :key="entry.item.plu" class="searchResult">
+      <div>{{ entry.item.plu }} - {{ entry.item.commodity }} {{ entry.item.variety }} | Match: {{ Math.ceil((1 - (entry.score || 0)) * 100) }}%</div>
+      <div v-if="!!entry.item.aka">Aka.: {{ entry.item.aka }}</div>
     </li>
   </ul>
 
@@ -36,5 +32,14 @@ defineProps<{
 <style scoped>
 li {
   margin-bottom: 0.5rem;
+}
+
+li.searchResult:first-of-type {
+  font-weight: bold;
+  font-size: 1.2em;
+
+  &::after {
+    content: 'Best Match!'
+  }
 }
 </style>

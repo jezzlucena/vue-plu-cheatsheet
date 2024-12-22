@@ -1,10 +1,9 @@
 type Variety = {
     plu: string,
-    name: string,
+    variety: string,
     size: string,
-    aka?: string,
-    commodity?: string,
-    variety?: string
+    aka: string,
+    commodity: string
 }
 
 type Commodity = {
