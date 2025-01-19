@@ -1,17 +1,20 @@
 <script setup lang="ts">
 import AppHeader from './components/AppHeader.vue'
 import SearchResults from './components/SearchResults.vue'
-import json from './commodities.json'
+import axios from 'axios'
 import Fuse from 'fuse.js';
-import { ref, type Ref } from 'vue';
+import { onMounted, ref, type Ref } from 'vue';
 
 const commodities: Commodity[] = [];
 const commodityDict: { [id: string] : Variety[] } = {};
 const searchQuery = ref('');
 const searchResults: Ref<Fuse.FuseResult<Variety>[] | undefined> = ref();
 
-const nameFuse = new Fuse(json, {
-  threshold: 0.25,
+const data: Ref<Variety[]> = ref([]);
+const loading = ref(false);
+
+const nameFuse = new Fuse(data.value, {
+  threshold: 0.3,
   keys: [{
     name: 'commodity',
     weight: 3
@@ -25,11 +28,26 @@ const nameFuse = new Fuse(json, {
   includeScore: true
 });
 
-const pluFuse = new Fuse(json, {
+const pluFuse = new Fuse(data.value, {
   threshold: 0.25,
   keys: ['plu'],
   includeScore: true
 });
+
+const fetchData = async () => {
+  loading.value = true;
+  try {
+    const response = await axios.get("http://localhost:5050/commodities");
+    data.value = response.data;
+  } finally {
+    nameFuse.setCollection(data.value);
+    pluFuse.setCollection(data.value);
+
+    loading.value = false;
+  }
+};
+
+onMounted(fetchData);
 
 function handleInput() {
   if (searchQuery.value?.length > 3) {
@@ -43,7 +61,7 @@ function handleInput() {
   }
 }
 
-for (const entry of json) {
+for (const entry of data.value) {
   if (!commodityDict[entry.commodity]) commodityDict[entry.commodity] = [];
 
   commodityDict[entry.commodity].push({
@@ -75,7 +93,7 @@ for (const commodityKey in commodityDict) {
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+    <img alt="Trader Joe's logo" class="logo" src="./assets/logo.png" height="125" />
 
     <div class="wrapper">
       <AppHeader />
