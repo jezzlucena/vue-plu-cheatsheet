@@ -29,6 +29,9 @@ var corsOptionsDelegate = function (req, callback) {
 
 app.use(cors(corsOptionsDelegate));
 
+/**
+ * Retrieve all commodities
+ */
 app.get('/commodities', async (_, res) => {
     try {
         const commodities = await Commodity.find({});
@@ -38,22 +41,75 @@ app.get('/commodities', async (_, res) => {
     };
 });
 
-app.post('/commodities', jsonParser, (req, res) => {
-    const id = new mongoose.Types.ObjectId();
-    const commodity = { ...req.body, id, _id: id };
+/**
+ * Retrieve a commodity by ID
+ */
+app.get('/commodities/:id', jsonParser, async (req, res) => {
+    try {
+        const { id } = req.params;
+        const commodity = await Commodity.findOne({ id });
 
-    const newCommodity = new Commodity(commodity);
-    newCommodity.save();
-
-    res.json(newCommodity);
+        if (commodity) {
+            res.json(commodity);
+        } else {
+            res.status(500).send("Commodity not found");
+        }
+    } catch (error) {
+        res.status(500).send("Error retrieving commodity");
+    };
 });
 
+/**
+ * Create new commodity
+ */
+app.post('/commodities', jsonParser, (req, res) => {
+    try {
+        const id = new mongoose.Types.ObjectId();
+        const commodity = { ...req.body, id, _id: id };
+
+        const newCommodity = new Commodity(commodity);
+        newCommodity.save();
+
+        res.json(newCommodity);
+    } catch (error) {
+        res.status(500).send();
+    };
+});
+
+/**
+ * Update commodity
+ */
 app.post('/commodities/:id', jsonParser, async (req, res) => {
-    const { id } = req.params;
+    try {
+        const { id } = req.params;
+        const commodity = await Commodity.findOneAndUpdate({ id }, req.body, { new: true });
 
-    const commodity = await Commodity.findOneAndUpdate({ id }, req.body, { new: true });
+        if (commodity) {
+            res.json(commodity);
+        } else {
+            res.status(500).send("Commodity not found");
+        }
+    } catch (error) {
+        res.status(500).send("Error updating commodity");
+    };
+});
 
-    res.json(commodity);
+/**
+ * Delete commodity
+ */
+app.delete('/commodities/:id', jsonParser, async (req, res) => {
+    try {
+        const { id } = req.params;
+        const commodity = await Commodity.findOneAndDelete({ id }, req.body, { new: true });
+
+        if (commodity) {
+            res.json(commodity);
+        } else {
+            res.status(500).send("Commodity not found");
+        }
+    } catch (error) {
+        res.status(500).send("Error deleting commodity");
+    };
 });
 
 app.listen(process.env.PORT);
