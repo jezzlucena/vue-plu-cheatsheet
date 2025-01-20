@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import AppHeader from './components/AppHeader.vue'
 import SearchResults from './components/SearchResults.vue'
+import VarietyModal from './components/VarietyModal.vue'
 import axios from 'axios'
 import Fuse from 'fuse.js';
-import { onMounted, ref, type Ref } from 'vue';
+import { onMounted, ref, toRaw, type Ref } from 'vue';
 
 const commodities: Commodity[] = [];
 const commodityDict: { [id: string] : Variety[] } = {};
@@ -12,6 +13,8 @@ const searchResults: Ref<Fuse.FuseResult<Variety>[] | undefined> = ref();
 
 const data: Ref<Variety[]> = ref([]);
 const loading = ref(false);
+const activeVariety: Ref<Variety | undefined> = ref();
+const isCreating = ref(false);
 
 const nameFuse = new Fuse(data.value, {
   threshold: 0.3,
@@ -36,6 +39,7 @@ const pluFuse = new Fuse(data.value, {
 
 const fetchData = async () => {
   loading.value = true;
+
   try {
     const response = await axios.get("http://localhost:5050/commodities");
     data.value = response.data;
@@ -61,10 +65,16 @@ function handleInput() {
   }
 }
 
+function handleNew() {
+  activeVariety.value = undefined;
+  isCreating.value = true;
+}
+
 for (const entry of data.value) {
   if (!commodityDict[entry.commodity]) commodityDict[entry.commodity] = [];
 
   commodityDict[entry.commodity].push({
+    id: entry.id,
     plu: `${entry.plu}`,
     variety: entry.variety,
     size: entry.size,
@@ -89,6 +99,42 @@ for (const commodityKey in commodityDict) {
     varieties: commodityDict[commodityKey]
   });
 }
+
+function resetVariety() {
+  activeVariety.value = undefined;
+  isCreating.value = false;
+}
+
+function selectVariety(variety: Variety) {
+  activeVariety.value = variety;
+  isCreating.value = false;
+}
+
+async function saveVariety(variety: Variety) {
+  loading.value = true;
+  
+  try {
+    if (activeVariety.value) {
+      const response = await axios.post(`http://localhost:5050/commodities/${variety.id}/`, variety);
+      const commodity = response.data;
+
+      const index = data.value.findIndex((entry) => entry.id === activeVariety.value?.id);
+      data.value[index] = commodity;
+    } else {
+      const response = await axios.post(`http://localhost:5050/commodities/`, variety);
+      const commodity = response.data;
+
+      data.value.push(commodity);
+    }
+  } finally {
+    nameFuse.setCollection(data.value);
+    pluFuse.setCollection(data.value);
+
+    loading.value = false;
+  }
+  
+  resetVariety();
+}
 </script>
 
 <template>
@@ -98,13 +144,18 @@ for (const commodityKey in commodityDict) {
     <div class="wrapper">
       <AppHeader />
 
-      <input type="text" v-model="searchQuery" @input="handleInput" placeholder="Search by name or PLU...">
+      <div class="row">
+        <input type="text" v-model="searchQuery" @input="handleInput" placeholder="Search by name or PLU...">
+        <img class="newButton" src="./assets/plus.svg" @click="handleNew" alt="New Product" height="32"/>
+      </div>
     </div>
   </header>
 
   <main>
-    <SearchResults :commodities="commodities" :searchResults="searchResults"/>
+    <SearchResults :commodities="commodities" :searchResults="searchResults" :onSelectVariety="selectVariety"/>
   </main>
+
+  <VarietyModal v-if="activeVariety || isCreating" :variety="activeVariety" :onClose="resetVariety" :onSubmit="saveVariety"/>
 </template>
 
 <style scoped>
@@ -136,6 +187,17 @@ input {
   background-position: 14px 14px;
   background-size: 18px;
   padding: 12px 20px 12px 40px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.newButton {
+  cursor: pointer;
+  margin: 0 0 0 0.5rem;
 }
 
 @media (min-width: 800px) {

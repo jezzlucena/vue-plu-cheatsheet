@@ -1,0 +1,163 @@
+<script setup lang="ts">
+import { ref, toRaw, toRefs } from 'vue';
+
+const props = defineProps<{
+  variety?: Variety,
+  onSubmit: (variety: Variety) => void,
+  onClose: () => void,
+}>();
+
+const rawVariety = toRaw(props.variety);
+
+const commodity = ref(rawVariety?.commodity);
+const varietyName = ref(rawVariety?.variety);
+const plu = ref(rawVariety?.plu);
+const size = ref(rawVariety?.size);
+const aka = ref(rawVariety?.aka);
+
+function handleSubmit() {
+  props.onSubmit({
+    id: rawVariety?.id || 1,
+    commodity: commodity.value || "",
+    variety: varietyName.value || "",
+    plu: plu.value || "",
+    size: size.value || "",
+    aka: aka.value || ""
+  });
+}
+</script>
+
+<template>
+  <div class="modal">
+    <div class="modal-bg" @click="onClose"></div>
+    <hr/>
+    <div class="modal-content">
+      <h3>
+        <span v-if="variety">Edit Variety</span>
+        <span v-else>New Variety</span>
+      </h3>
+      <hr/>
+      <span class="close" @click="onClose">&times;</span>
+      <div class="row">
+        <div class="column">
+          <span class="label">Commodity</span>
+          <input type="text" name="commodity" v-model="commodity" placeholder="E.g. Apple">
+        </div>
+        <div class="column">
+          <span class="label">Variety</span>
+          <input type="text" name="variety" v-model="varietyName" placeholder="E.g. Fuji">
+        </div>
+      </div>
+      <div class="row">
+        <div class="column">
+          <span class="label">PLU</span>
+          <input type="text" name="plu" v-model="plu" placeholder="E.g. 4131">
+        </div>
+        <div class="column">
+          <span class="label">Size</span>
+          <input type="text" name="size" v-model="size" placeholder="E.g. All Sizes">
+        </div>
+      </div>
+      <div class="column">
+        <span class="label">Aka</span>
+        <input type="textarea" name="aka" v-model="aka" rows="2" placeholder="Also Known As...">
+      </div>
+      <div class="row">
+        <div class="spacer"></div>
+        <button @click="handleSubmit">Save</button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.modal {
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+}
+
+.modal-bg {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+}
+
+.modal-content {
+  background-color: white;
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  display: block;
+  text-align: right;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+hr {
+  margin: 0.5rem 0;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  
+  &:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.column {
+  position: relative;
+  flex: 1;
+
+  &:not(:last-child) {
+    margin-right: 0.5rem;
+  }
+}
+
+.label {
+  position: absolute;
+  top: 0px;
+  left: 4px;
+  background-color: rgba(255, 255, 255, 0.9);
+  line-height: 8px;
+  padding: 0 2px;
+  font-size: 10px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 0.5rem;
+  margin: 0.2rem 0;
+  border: 1px solid #ccc;
+
+  &[type="textarea"] {
+    width: 100%;
+  }
+}
+
+button {
+  padding: 10px;
+  border-radius: 0.5rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  font-weight: bold;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+</style>

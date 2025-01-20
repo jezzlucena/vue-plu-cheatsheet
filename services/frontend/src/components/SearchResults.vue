@@ -3,7 +3,8 @@ import Fuse from 'fuse.js';
 
 defineProps<{
   commodities: Commodity[],
-  searchResults?: Fuse.FuseResult<Variety>[]
+  searchResults?: Fuse.FuseResult<Variety>[],
+  onSelectVariety: (variety: Variety) => void
 }>()
 </script>
 
@@ -24,7 +25,7 @@ defineProps<{
   </div>
 
   <ul v-if="(searchResults?.length || 0) > 0">
-    <li v-for="entry in searchResults" :key="entry.item.plu" class="item">
+    <li v-for="entry in searchResults" :key="entry.item.plu" class="item" @click="onSelectVariety(entry.item)">
       <div class="info">
         <div class="name">{{ entry.item.commodity }} {{ entry.item.variety }}</div>
         <div class="plu">{{ entry.item.plu }}</div>
