@@ -6,7 +6,7 @@ import axios from 'axios'
 import Fuse from 'fuse.js';
 import { onMounted, ref, toRaw, type Ref } from 'vue';
 
-const commodities: Commodity[] = [];
+const commodities: Ref<Commodity[]> = ref([]);
 const commodityDict: { [id: string] : Variety[] } = {};
 const searchQuery = ref('');
 const searchResults: Ref<Fuse.FuseResult<Variety>[] | undefined> = ref();
@@ -47,6 +47,38 @@ const fetchData = async () => {
     nameFuse.setCollection(data.value);
     pluFuse.setCollection(data.value);
 
+    commodities.value = [];
+
+    for (const entry of data.value) {
+      if (!commodityDict[entry.commodity]) commodityDict[entry.commodity] = [];
+
+      commodityDict[entry.commodity].push({
+        id: entry.id,
+        plu: `${entry.plu}`,
+        variety: entry.variety,
+        size: entry.size,
+        aka: entry.aka,
+        commodity: entry.commodity
+      });
+    }
+
+    for (const commodityKey in commodityDict) {
+      commodityDict[commodityKey].sort((a, b) => {
+        if (a.variety > b.variety) {
+          return 1;
+        } else if (b.variety > a.variety) {
+          return -1;
+        }
+
+        return 0;
+      });
+
+      commodities.value.push({
+        name: commodityKey,
+        varieties: commodityDict[commodityKey]
+      });
+    }
+
     loading.value = false;
   }
 };
@@ -68,36 +100,6 @@ function handleInput() {
 function handleNew() {
   activeVariety.value = undefined;
   isCreating.value = true;
-}
-
-for (const entry of data.value) {
-  if (!commodityDict[entry.commodity]) commodityDict[entry.commodity] = [];
-
-  commodityDict[entry.commodity].push({
-    id: entry.id,
-    plu: `${entry.plu}`,
-    variety: entry.variety,
-    size: entry.size,
-    aka: entry.aka,
-    commodity: entry.commodity
-  });
-}
-
-for (const commodityKey in commodityDict) {
-  commodityDict[commodityKey].sort((a, b) => {
-    if (a.variety > b.variety) {
-      return 1;
-    } else if (b.variety > a.variety) {
-      return -1;
-    }
-
-    return 0;
-  });
-
-  commodities.push({
-    name: commodityKey,
-    varieties: commodityDict[commodityKey]
-  });
 }
 
 function resetVariety() {
