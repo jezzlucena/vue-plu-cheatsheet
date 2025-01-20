@@ -1,11 +1,9 @@
-require('dotenv').config();
-const Commodity = require('./models/Commodity');
+import './env';
+import commodities from './commodities.json';
+import Commodity from './models/Commodity.js';
+import mongoose from 'mongoose';
 
-const commodities = require('./commodities.json');
-
-const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
-
+mongoose.connect(process.env.MONGODB_URI);
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', () => {

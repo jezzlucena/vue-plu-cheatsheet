@@ -1,7 +1,8 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+import { ObjectId } from 'mongodb';
 
 const commoditySchema = new mongoose.Schema({
-    "id": { type: Number, unique: true },
+    "id": { type: ObjectId, unique: true },
     "plu": Number,
     "category": String,
     "commodity": String,
@@ -13,4 +14,4 @@ const commoditySchema = new mongoose.Schema({
 
 const Commodity = mongoose.model('Commodity', commoditySchema);
 
-module.exports = Commodity;
+export default Commodity;
