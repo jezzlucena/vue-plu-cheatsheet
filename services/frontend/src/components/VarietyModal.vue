@@ -4,6 +4,7 @@ import { ref, toRaw, toRefs } from 'vue';
 const props = defineProps<{
   variety?: Variety,
   onSubmit: (variety: Variety) => void,
+  onDelete: (variety: Variety) => void,
   onClose: () => void,
 }>();
 
@@ -17,6 +18,17 @@ const aka = ref(rawVariety?.aka);
 
 function handleSubmit() {
   props.onSubmit({
+    id: rawVariety?.id || 1,
+    commodity: commodity.value || "",
+    variety: varietyName.value || "",
+    plu: plu.value || "",
+    size: size.value || "",
+    aka: aka.value || ""
+  });
+}
+
+function handleDelete() {
+  props.onDelete({
     id: rawVariety?.id || 1,
     commodity: commodity.value || "",
     variety: varietyName.value || "",
@@ -62,9 +74,11 @@ function handleSubmit() {
         <span class="label">Aka</span>
         <input type="textarea" name="aka" v-model="aka" rows="2" placeholder="Also Known As...">
       </div>
-      <div class="row">
+      <div class="flex">
         <div class="spacer"></div>
-        <button @click="handleSubmit">Save</button>
+        <button class="delete" @click="handleDelete">Delete</button>
+        <button class="cancel" @click="onClose">Cancel</button>
+        <button class="submit" @click="handleSubmit">Save</button>
       </div>
     </div>
   </div>
@@ -145,19 +159,48 @@ input {
   }
 }
 
+.flex {
+  display: flex;
+
+  .spacer {
+    flex: 1;
+  }
+}
+
 button {
   padding: 10px;
   border-radius: 0.5rem;
-  background-color: #007bff;
   color: white;
   border: none;
   cursor: pointer;
   padding: 0.5rem 1rem;
   margin-top: 0.5rem;
+  margin-left: 0.4rem;
   font-weight: bold;
 
-  &:hover {
-    background-color: #0056b3;
+  &.submit {
+    background-color: #007bff;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  &.cancel {
+    background-color: #ccc;
+    color: black;
+
+    &:hover {
+      background-color: #888;
+    }
+  }
+
+  &.delete {
+    background-color: #ff0000;
+
+    &:hover {
+      background-color: #aa0000;
+    }
   }
 }
 </style>

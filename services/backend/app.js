@@ -99,8 +99,10 @@ app.post('/commodities/:id', jsonParser, async (req, res) => {
  */
 app.delete('/commodities/:id', jsonParser, async (req, res) => {
     try {
+        console.log(req.params);
         const { id } = req.params;
-        const commodity = await Commodity.findOneAndDelete({ id }, req.body, { new: true });
+        const commodity = await Commodity.findOneAndDelete({ id }, req.body);
+        console.log(commodity);
 
         if (commodity) {
             res.json(commodity);

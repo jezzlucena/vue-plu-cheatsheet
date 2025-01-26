@@ -7,7 +7,7 @@ import Fuse from 'fuse.js';
 import { onMounted, ref, toRaw, type Ref } from 'vue';
 
 const commodities: Ref<Commodity[]> = ref([]);
-const commodityDict: { [id: string] : Variety[] } = {};
+const commodityDict: Ref<{ [id: string] : Variety[] }> = ref({});
 const searchQuery = ref('');
 const searchResults: Ref<Fuse.FuseResult<Variety>[] | undefined> = ref();
 
@@ -39,6 +39,7 @@ const pluFuse = new Fuse(data.value, {
 
 const fetchData = async () => {
   loading.value = true;
+  commodityDict.value = {};
 
   try {
     const response = await axios.get("http://localhost:5050/commodities");
@@ -50,9 +51,9 @@ const fetchData = async () => {
     commodities.value = [];
 
     for (const entry of data.value) {
-      if (!commodityDict[entry.commodity]) commodityDict[entry.commodity] = [];
+      if (!commodityDict.value[entry.commodity]) commodityDict.value[entry.commodity] = [];
 
-      commodityDict[entry.commodity].push({
+      commodityDict.value[entry.commodity].push({
         id: entry.id,
         plu: `${entry.plu}`,
         variety: entry.variety,
@@ -62,8 +63,8 @@ const fetchData = async () => {
       });
     }
 
-    for (const commodityKey in commodityDict) {
-      commodityDict[commodityKey].sort((a, b) => {
+    for (const commodityKey in commodityDict.value) {
+      commodityDict.value[commodityKey].sort((a, b) => {
         if (a.variety > b.variety) {
           return 1;
         } else if (b.variety > a.variety) {
@@ -75,7 +76,7 @@ const fetchData = async () => {
 
       commodities.value.push({
         name: commodityKey,
-        varieties: commodityDict[commodityKey]
+        varieties: commodityDict.value[commodityKey]
       });
     }
 
@@ -100,11 +101,15 @@ function handleInput() {
 function handleNew() {
   activeVariety.value = undefined;
   isCreating.value = true;
+
+  fetchData();
 }
 
 function resetVariety() {
   activeVariety.value = undefined;
   isCreating.value = false;
+
+  fetchData();
 }
 
 function selectVariety(variety: Variety) {
@@ -136,6 +141,28 @@ async function saveVariety(variety: Variety) {
   }
   
   resetVariety();
+  handleInput();
+}
+
+async function deleteVariety(variety: Variety) {
+  loading.value = true;
+  
+  try {
+    const response = await axios.delete(`http://localhost:5050/commodities/${variety.id}/`);
+    console.log(response);
+    const commodity = response.data;
+
+    const index = data.value.findIndex((entry) => entry.id === activeVariety.value?.id);
+    data.value = data.value.splice(index, 1);
+  } finally {
+    nameFuse.setCollection(data.value);
+    pluFuse.setCollection(data.value);
+
+    loading.value = false;
+  }
+  
+  resetVariety();
+  handleInput();
 }
 </script>
 
@@ -157,7 +184,7 @@ async function saveVariety(variety: Variety) {
     <SearchResults :commodities="commodities" :searchResults="searchResults" :onSelectVariety="selectVariety"/>
   </main>
 
-  <VarietyModal v-if="activeVariety || isCreating" :variety="activeVariety" :onClose="resetVariety" :onSubmit="saveVariety"/>
+  <VarietyModal v-if="activeVariety || isCreating" :variety="activeVariety" :onClose="resetVariety" :onSubmit="saveVariety" :onDelete="deleteVariety"/>
 </template>
 
 <style scoped>

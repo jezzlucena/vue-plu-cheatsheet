@@ -14,7 +14,7 @@ defineProps<{
       <h3>{{ commodity.name }}</h3>
 
       <ul>
-        <li v-for="entry in commodity.varieties" :key="entry.plu">
+        <li v-for="entry in commodity.varieties" :key="entry.plu" @click="onSelectVariety(entry)">
           <div class="info">
             <div class="name">{{ entry.variety }}</div>
             <div class="plu">{{ entry.plu }}</div>
