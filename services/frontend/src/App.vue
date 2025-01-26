@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AppHeader from './components/AppHeader.vue'
+import LoadingScreen from './components/LoadingScreen.vue';
 import SearchResults from './components/SearchResults.vue'
 import VarietyModal from './components/VarietyModal.vue'
 import axios from 'axios'
@@ -149,8 +150,6 @@ async function deleteVariety(variety: Variety) {
   
   try {
     const response = await axios.delete(`http://localhost:5050/commodities/${variety.id}/`);
-    console.log(response);
-    const commodity = response.data;
 
     const index = data.value.findIndex((entry) => entry.id === activeVariety.value?.id);
     data.value = data.value.splice(index, 1);
@@ -185,6 +184,7 @@ async function deleteVariety(variety: Variety) {
   </main>
 
   <VarietyModal v-if="activeVariety || isCreating" :variety="activeVariety" :onClose="resetVariety" :onSubmit="saveVariety" :onDelete="deleteVariety"/>
+  <LoadingScreen v-if="loading"/>
 </template>
 
 <style scoped>

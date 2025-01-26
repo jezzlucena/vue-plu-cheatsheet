@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, toRaw, toRefs } from 'vue';
+import { ref, toRaw } from 'vue';
 
 const props = defineProps<{
   variety?: Variety,
@@ -10,18 +10,20 @@ const props = defineProps<{
 
 const rawVariety = toRaw(props.variety);
 
-const commodity = ref(rawVariety?.commodity);
-const varietyName = ref(rawVariety?.variety);
-const plu = ref(rawVariety?.plu);
-const size = ref(rawVariety?.size);
-const aka = ref(rawVariety?.aka);
+const commodity = ref(rawVariety?.commodity || "");
+const varietyName = ref(rawVariety?.variety || "");
+const plu = ref(rawVariety?.plu || "");
+const size = ref(rawVariety?.size || "");
+const aka = ref(rawVariety?.aka || "");
 
 function handleSubmit() {
+  if (!commodity.value || !varietyName.value || !plu.value) return;
+
   props.onSubmit({
     id: rawVariety?.id || 1,
-    commodity: commodity.value || "",
-    variety: varietyName.value || "",
-    plu: plu.value || "",
+    commodity: commodity.value,
+    variety: varietyName.value,
+    plu: plu.value,
     size: size.value || "",
     aka: aka.value || ""
   });
@@ -50,36 +52,38 @@ function handleDelete() {
       </h3>
       <hr/>
       <span class="close" @click="onClose">&times;</span>
-      <div class="row">
+      <form @submit.prevent="handleSubmit">
+        <div class="row">
         <div class="column">
-          <span class="label">Commodity</span>
-          <input type="text" name="commodity" v-model="commodity" placeholder="E.g. Apple">
+          <label class="label required">Commodity</label>
+          <input :class="{ required: true, valid: commodity !== '' }" type="text" name="commodity" v-model="commodity" placeholder="E.g. Apple">
         </div>
         <div class="column">
-          <span class="label">Variety</span>
-          <input type="text" name="variety" v-model="varietyName" placeholder="E.g. Fuji">
+          <span class="label required">Variety</span>
+          <input :class="{ required: true, valid: varietyName !== '' }" type="text" name="variety" v-model="varietyName" placeholder="E.g. Fuji">
         </div>
       </div>
       <div class="row">
         <div class="column">
-          <span class="label">PLU</span>
-          <input type="text" name="plu" v-model="plu" placeholder="E.g. 4131">
+          <label class="label required">PLU</label>
+          <input :class="{ required: true, valid: plu !== '' }" type="text" name="plu" v-model="plu" placeholder="E.g. 4131">
         </div>
         <div class="column">
-          <span class="label">Size</span>
+          <label class="label">Size</label>
           <input type="text" name="size" v-model="size" placeholder="E.g. All Sizes">
         </div>
       </div>
       <div class="column">
-        <span class="label">Aka</span>
+        <label class="label">Aka</label>
         <input type="textarea" name="aka" v-model="aka" rows="2" placeholder="Also Known As...">
       </div>
       <div class="flex">
         <div class="spacer"></div>
-        <button class="delete" @click="handleDelete">Delete</button>
-        <button class="cancel" @click="onClose">Cancel</button>
-        <button class="submit" @click="handleSubmit">Save</button>
+        <button class="submit" type="submit">Save</button>
+        <button class="cancel" @click.prevent="onClose">Cancel</button>
+        <button class="delete" @click.prevent="handleDelete">Delete</button>
       </div>
+      </form>
     </div>
   </div>
 </template>
@@ -146,6 +150,11 @@ hr {
   line-height: 8px;
   padding: 0 2px;
   font-size: 10px;
+
+  &.required::after {
+    content: ' *';
+    color: red;
+  }
 }
 
 input {
@@ -156,6 +165,10 @@ input {
 
   &[type="textarea"] {
     width: 100%;
+  }
+
+  &.required:not(.valid) {
+    border-color: red;
   }
 }
 
@@ -187,11 +200,12 @@ button {
   }
 
   &.cancel {
-    background-color: #ccc;
+    background-color: white;
+    border: 0.5px solid black;
     color: black;
 
     &:hover {
-      background-color: #888;
+      background-color: #ccc;
     }
   }
 
