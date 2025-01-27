@@ -4,7 +4,6 @@ import cors from 'cors';
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
-import { v4 as uuidv4 } from 'uuid';
 
 const app = express();
 const jsonParser = bodyParser.json();
@@ -112,4 +111,4 @@ app.delete('/commodities/:id', jsonParser, async (req, res) => {
     };
 });
 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT || 5050);
