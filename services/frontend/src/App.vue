@@ -5,7 +5,9 @@ import SearchResults from './components/SearchResults.vue'
 import VarietyModal from './components/VarietyModal.vue'
 import axios from 'axios'
 import Fuse from 'fuse.js';
-import { onMounted, ref, toRaw, type Ref } from 'vue';
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
+import { onMounted, ref, type Ref } from 'vue';
 
 const commodities: Ref<Commodity[]> = ref([]);
 const commodityDict: Ref<{ [id: string] : Variety[] }> = ref({});
@@ -13,7 +15,8 @@ const searchQuery = ref('');
 const searchResults: Ref<Fuse.FuseResult<Variety>[] | undefined> = ref();
 
 const data: Ref<Variety[]> = ref([]);
-const loading = ref(false);
+const isLoading = ref(false);
+const isEditing = ref(false);
 const activeVariety: Ref<Variety | undefined> = ref();
 const isCreating = ref(false);
 
@@ -39,7 +42,7 @@ const pluFuse = new Fuse(data.value, {
 });
 
 const fetchData = async () => {
-  loading.value = true;
+  isLoading.value = true;
   commodityDict.value = {};
 
   try {
@@ -81,7 +84,7 @@ const fetchData = async () => {
       });
     }
 
-    loading.value = false;
+    isLoading.value = false;
   }
 };
 
@@ -102,15 +105,15 @@ function handleInput() {
 function handleNew() {
   activeVariety.value = undefined;
   isCreating.value = true;
+}
 
-  fetchData();
+function toggleEditing() {
+  isEditing.value = !isEditing.value;
 }
 
 function resetVariety() {
   activeVariety.value = undefined;
   isCreating.value = false;
-
-  fetchData();
 }
 
 function selectVariety(variety: Variety) {
@@ -119,7 +122,7 @@ function selectVariety(variety: Variety) {
 }
 
 async function saveVariety(variety: Variety) {
-  loading.value = true;
+  isLoading.value = true;
   
   try {
     if (activeVariety.value) {
@@ -128,38 +131,51 @@ async function saveVariety(variety: Variety) {
 
       const index = data.value.findIndex((entry) => entry.id === activeVariety.value?.id);
       data.value[index] = commodity;
+
+      toast("Variety updated successfully!", { position: toast.POSITION.BOTTOM_RIGHT});
     } else {
       const response = await axios.post(`http://localhost:5050/commodities/`, variety);
       const commodity = response.data;
 
       data.value.push(commodity);
+
+      toast("Variety created successfully!", { position: toast.POSITION.BOTTOM_RIGHT});
     }
+  } catch(error) {
+    if (activeVariety.value) toast.error("Error updating Variety!", { position: toast.POSITION.BOTTOM_RIGHT});
+    else toast.error("Error creating Variety!", { position: toast.POSITION.BOTTOM_RIGHT});
   } finally {
     nameFuse.setCollection(data.value);
     pluFuse.setCollection(data.value);
 
-    loading.value = false;
+    isLoading.value = false;
   }
   
+  fetchData();
   resetVariety();
   handleInput();
 }
 
 async function deleteVariety(variety: Variety) {
-  loading.value = true;
+  isLoading.value = true;
   
   try {
-    const response = await axios.delete(`http://localhost:5050/commodities/${variety.id}/`);
+    await axios.delete(`http://localhost:5050/commodities/${variety.id}/`);
 
     const index = data.value.findIndex((entry) => entry.id === activeVariety.value?.id);
-    data.value = data.value.splice(index, 1);
+    data.value.splice(index, 1);
+
+    toast("Variety deleted successfully!", { position: toast.POSITION.BOTTOM_RIGHT});
+  } catch(error) {
+    toast.error("Error deleting Variety!", { position: toast.POSITION.BOTTOM_RIGHT});
   } finally {
     nameFuse.setCollection(data.value);
     pluFuse.setCollection(data.value);
 
-    loading.value = false;
+    isLoading.value = false;
   }
-  
+
+  fetchData();
   resetVariety();
   handleInput();
 }
@@ -175,16 +191,28 @@ async function deleteVariety(variety: Variety) {
       <div class="row">
         <input type="text" v-model="searchQuery" @input="handleInput" placeholder="Search by name or PLU...">
         <img class="newButton" src="./assets/plus.svg" @click="handleNew" alt="New Product" height="32"/>
+        <img :class="{ editButton: true, active: isEditing }" src="./assets/edit.svg" @click="toggleEditing" alt="Toggle Editing" height="32"/>
       </div>
     </div>
   </header>
 
   <main>
-    <SearchResults :commodities="commodities" :searchResults="searchResults" :onSelectVariety="selectVariety"/>
+    <SearchResults
+      :commodities="commodities"
+      :searchResults="searchResults"
+      :onSelectVariety="selectVariety"
+      :isEditing="isEditing"
+    />
   </main>
 
-  <VarietyModal v-if="activeVariety || isCreating" :variety="activeVariety" :onClose="resetVariety" :onSubmit="saveVariety" :onDelete="deleteVariety"/>
-  <LoadingScreen v-if="loading"/>
+  <VarietyModal
+    v-if="!isLoading && (activeVariety || isCreating)"
+    :variety="activeVariety"
+    :onClose="resetVariety"
+    :onSubmit="saveVariety"
+    :onDelete="deleteVariety"
+  />
+  <LoadingScreen v-if="isLoading"/>
 </template>
 
 <style scoped>
@@ -224,9 +252,14 @@ input {
   align-items: center;
 }
 
-.newButton {
+.newButton, .editButton {
   cursor: pointer;
   margin: 0 0 0 0.5rem;
+  border-radius: 50%;
+
+  &.active {
+    background-color: #ddd;
+  }
 }
 
 @media (min-width: 800px) {

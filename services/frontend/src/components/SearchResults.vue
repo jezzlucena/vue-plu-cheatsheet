@@ -2,6 +2,7 @@
 import Fuse from 'fuse.js';
 
 defineProps<{
+  isEditing?: boolean,
   commodities: Commodity[],
   searchResults?: Fuse.FuseResult<Variety>[],
   onSelectVariety: (variety: Variety) => void
@@ -14,10 +15,11 @@ defineProps<{
       <h3>{{ commodity.name }}</h3>
 
       <ul>
-        <li v-for="entry in commodity.varieties" :key="entry.plu" @click="onSelectVariety(entry)">
+        <li v-for="entry in commodity.varieties" :key="entry.plu">
           <div class="info">
             <div class="name">{{ entry.variety }}</div>
             <div class="plu">{{ entry.plu }}</div>
+            <img class="editButton" src="../assets/edit.svg" v-if="isEditing" alt="Edit Variety" @click="onSelectVariety(entry)" height="26">
           </div>
         </li>
       </ul>
@@ -25,10 +27,11 @@ defineProps<{
   </div>
 
   <ul v-if="(searchResults?.length || 0) > 0">
-    <li v-for="entry in searchResults" :key="entry.item.plu" class="item" @click="onSelectVariety(entry.item)">
+    <li v-for="entry in searchResults" :key="entry.item.plu" class="item">
       <div class="info">
         <div class="name">{{ entry.item.commodity }} {{ entry.item.variety }}</div>
         <div class="plu">{{ entry.item.plu }}</div>
+        <img class="editButton" src="../assets/edit.svg" v-if="isEditing" alt="Edit Variety" @click="onSelectVariety(entry.item)" height="26">
       </div>
       <div>
         <span v-if="!!entry.item.aka" class="aka">Aka {{ entry.item.aka }} | </span>
@@ -64,6 +67,11 @@ defineProps<{
     flex-grow: 1;
     margin-left: 1rem;
   }
+}
+
+.editButton {
+  cursor: pointer;
+  margin-left: 0.2rem;
 }
 
 h3 {
