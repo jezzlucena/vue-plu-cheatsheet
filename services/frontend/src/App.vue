@@ -227,6 +227,7 @@ header {
 
 main {
   margin: 1rem 0;
+  column-gap: 2rem;
 }
 
 input {
@@ -255,7 +256,7 @@ input {
 .newButton, .editButton {
   cursor: pointer;
   margin: 0 0 0 0.5rem;
-  border-radius: 50%;
+  border-radius: 0.3rem;
 
   &.active {
     background-color: #ddd;

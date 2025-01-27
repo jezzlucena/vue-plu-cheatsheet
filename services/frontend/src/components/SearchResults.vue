@@ -19,7 +19,7 @@ defineProps<{
           <div class="info">
             <div class="name">{{ entry.variety }}</div>
             <div class="plu">{{ entry.plu }}</div>
-            <img class="editButton" src="../assets/edit.svg" v-if="isEditing" alt="Edit Variety" @click="onSelectVariety(entry)" height="26">
+            <img class="editButton" src="../assets/edit.svg" v-if="isEditing" alt="Edit Variety" @click="onSelectVariety(entry)">
           </div>
         </li>
       </ul>
@@ -72,6 +72,8 @@ defineProps<{
 .editButton {
   cursor: pointer;
   margin-left: 0.2rem;
+  height: 18px;
+  margin-top: 0.2rem;
 }
 
 h3 {
@@ -83,7 +85,7 @@ h3 {
 
 ul {
   list-style-type: none;
-  padding: 0 2rem 0 0;
+  padding: 0;
 
   li {
     padding: 0.5rem 0;
