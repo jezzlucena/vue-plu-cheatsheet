@@ -51,11 +51,12 @@ app.get('/commodities/:id', jsonParser, async (req, res) => {
         if (commodity) {
             res.json(commodity);
         } else {
-            res.status(500).send("Commodity not found");
+            res.status(404).send("Commodity not found");
         }
     } catch (error) {
-        res.status(500).send("Error retrieving commodity");
-    };
+        if (error.kind === 'ObjectId') res.status(400).send("Invalid Commodity ID");
+        else res.status(500).send("Error retrieving Commodity");
+    }
 });
 
 /**
@@ -86,11 +87,12 @@ app.post('/commodities/:id', jsonParser, async (req, res) => {
         if (commodity) {
             res.json(await Commodity.findOne({ id }));
         } else {
-            res.status(500).send("Commodity not found");
+            res.status(404).send("Commodity not found");
         }
     } catch (error) {
-        res.status(500).send("Error updating commodity");
-    };
+        if (error.kind === 'ObjectId') res.status(400).send("Invalid Commodity ID");
+        else res.status(500).send("Error updating Commodity");
+    }
 });
 
 /**
@@ -104,11 +106,12 @@ app.delete('/commodities/:id', jsonParser, async (req, res) => {
         if (commodity) {
             res.json(commodity);
         } else {
-            res.status(500).send("Commodity not found");
+            res.status(404).send("Commodity not found");
         }
     } catch (error) {
-        res.status(500).send("Error deleting commodity");
-    };
+        if (error.kind === 'ObjectId') res.status(400).send("Invalid Commodity ID");
+        else res.status(500).send("Error deleting Commodity");
+    }
 });
 
 const server = app.listen(process.env.PORT || 5050);
