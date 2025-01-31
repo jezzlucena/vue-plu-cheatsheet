@@ -14,7 +14,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', async () => {
     console.log('Connected to MongoDB');
 });
-
+  
 var whitelist = ['http://localhost:8080']
 var corsOptionsDelegate = function (req, callback) {
   var corsOptions;
@@ -81,10 +81,10 @@ app.post('/commodities', jsonParser, (req, res) => {
 app.post('/commodities/:id', jsonParser, async (req, res) => {
     try {
         const { id } = req.params;
-        const commodity = await Commodity.findOneAndUpdate({ id }, req.body, { new: true });
+        const commodity = await Commodity.findOneAndUpdate({ id }, req.body);
 
         if (commodity) {
-            res.json(commodity);
+            res.json(await Commodity.findOne({ id }));
         } else {
             res.status(500).send("Commodity not found");
         }
@@ -111,4 +111,22 @@ app.delete('/commodities/:id', jsonParser, async (req, res) => {
     };
 });
 
-app.listen(process.env.PORT || 5050);
+const server = app.listen(process.env.PORT || 5050);
+
+function closeDBConnection() {
+    db.close().then(() => {
+        console.log('Mongoose connection closed');
+        process.exit(0);
+    });
+
+    server.close();
+}
+
+// Close the connection when the app shuts down
+process.on('SIGINT', closeDBConnection);
+process.on('SIGTERM', closeDBConnection);
+
+export {
+    server,
+    closeDBConnection
+};
