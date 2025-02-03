@@ -1,5 +1,5 @@
 type Variety = {
-    id: number,
+    _id: string,
     plu: string,
     variety: string,
     size: string,

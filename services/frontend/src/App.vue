@@ -58,7 +58,7 @@ const fetchData = async () => {
       if (!commodityDict.value[entry.commodity]) commodityDict.value[entry.commodity] = [];
 
       commodityDict.value[entry.commodity].push({
-        id: entry.id,
+        _id: entry._id,
         plu: `${entry.plu}`,
         variety: entry.variety,
         size: entry.size,
@@ -126,10 +126,10 @@ async function saveVariety(variety: Variety) {
   
   try {
     if (activeVariety.value) {
-      const response = await axios.post(`http://localhost:5050/commodities/${variety.id}/`, variety);
+      const response = await axios.post(`http://localhost:5050/commodities/${variety._id}/`, variety);
       const commodity = response.data;
 
-      const index = data.value.findIndex((entry) => entry.id === activeVariety.value?.id);
+      const index = data.value.findIndex((entry) => entry._id === activeVariety.value?._id);
       data.value[index] = commodity;
 
       toast("Variety updated successfully!", { position: toast.POSITION.BOTTOM_RIGHT});
@@ -160,9 +160,9 @@ async function deleteVariety(variety: Variety) {
   isLoading.value = true;
   
   try {
-    await axios.delete(`http://localhost:5050/commodities/${variety.id}/`);
+    await axios.delete(`http://localhost:5050/commodities/${variety._id}/`);
 
-    const index = data.value.findIndex((entry) => entry.id === activeVariety.value?.id);
+    const index = data.value.findIndex((entry) => entry._id === activeVariety.value?._id);
     data.value.splice(index, 1);
 
     toast("Variety deleted successfully!", { position: toast.POSITION.BOTTOM_RIGHT});

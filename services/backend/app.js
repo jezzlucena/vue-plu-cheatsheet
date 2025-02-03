@@ -46,7 +46,7 @@ app.get('/commodities', async (_, res) => {
 app.get('/commodities/:id', jsonParser, async (req, res) => {
     try {
         const { id } = req.params;
-        const commodity = await Commodity.findOne({ id });
+        const commodity = await Commodity.findOne({ _id: id });
 
         if (commodity) {
             res.json(commodity);
@@ -64,8 +64,8 @@ app.get('/commodities/:id', jsonParser, async (req, res) => {
  */
 app.post('/commodities', jsonParser, (req, res) => {
     try {
-        const id = new mongoose.Types.ObjectId();
-        const commodity = { ...req.body, id, _id: id };
+        const _id = new mongoose.Types.ObjectId();
+        const commodity = { ...req.body, _id };
 
         const newCommodity = new Commodity(commodity);
         newCommodity.save();
@@ -82,7 +82,7 @@ app.post('/commodities', jsonParser, (req, res) => {
 app.post('/commodities/:id', jsonParser, async (req, res) => {
     try {
         const { id } = req.params;
-        const commodity = await Commodity.findOneAndUpdate({ id }, req.body);
+        const commodity = await Commodity.findOneAndUpdate({ _id: id }, req.body);
 
         if (commodity) {
             res.json(await Commodity.findOne({ id }));
@@ -101,7 +101,7 @@ app.post('/commodities/:id', jsonParser, async (req, res) => {
 app.delete('/commodities/:id', jsonParser, async (req, res) => {
     try {
         const { id } = req.params;
-        const commodity = await Commodity.findOneAndDelete({ id }, req.body);
+        const commodity = await Commodity.findOneAndDelete({ _id: id }, req.body);
 
         if (commodity) {
             res.json(commodity);

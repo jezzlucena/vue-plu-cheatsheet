@@ -1,0 +1,1969 @@
+[
+    {
+      "plu": 3009,
+      "commodity": "🍎 Apple",
+      "variety": "Russet",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3011,
+      "commodity": "🍎 Apple",
+      "variety": "Worcester",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3012,
+      "commodity": "🍐 Pear",
+      "variety": "Abate Fetel",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3035,
+      "commodity": "🍑 Nectarine",
+      "variety": "White",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 3037,
+      "commodity": "🍍 Pineapple",
+      "variety": "Queen",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3038,
+      "commodity": "🍈 Passion Fruit",
+      "variety": "Granadilla, Orange",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3043,
+      "commodity": "🍇 Grapes",
+      "variety": "Italia, Seeded",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3052,
+      "commodity": "🧄 Garlic",
+      "variety": "String",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3053,
+      "commodity": "Parsnip",
+      "variety": "Baby",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3061,
+      "commodity": "🍅 Tomato",
+      "variety": "Beef/Beefsteak",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3079,
+      "commodity": "Asparagus",
+      "variety": "Purple",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3082,
+      "commodity": "🥦 Broccoli",
+      "variety": "Crowns",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3089,
+      "commodity": "🍆 Eggplant",
+      "variety": "Chinese",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3090,
+      "commodity": "🍆 Eggplant",
+      "variety": "Thai",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3097,
+      "commodity": "🥬 Lettuce",
+      "variety": "Romaine, Red",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3098,
+      "commodity": "🥬 Lettuce",
+      "variety": "Boston, Red",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3100,
+      "commodity": "🍈 Melon",
+      "variety": "Gold Honeydew",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3101,
+      "commodity": "🍈 Melon",
+      "variety": "Piel de Sapo",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3110,
+      "commodity": "🍊 Orange",
+      "variety": "Navel, Cara Cara (Red)",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3114,
+      "commodity": "🥭 Mango",
+      "variety": "Green",
+      "size": "Extra Large",
+      "aka": "Keitt and Francis varieties"
+    },
+    {
+      "plu": 3117,
+      "commodity": "🍑 Peach",
+      "variety": "Yellow Flesh (Tree Ripened/Ready-to-eat)",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 3121,
+      "commodity": "🌶️ Peppers",
+      "variety": "Bell, Greenhouse - Orange",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3125,
+      "commodity": "🌶️ Peppers",
+      "variety": "Habanero",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3127,
+      "commodity": "Pomegranate",
+      "variety": "Regular",
+      "size": "Medium",
+      "aka": ""
+    },
+    {
+      "plu": 3129,
+      "commodity": "🍊 Grapefruit",
+      "variety": "Pummelo - Red",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3130,
+      "commodity": "🎃 Pumpkin",
+      "variety": "Jumbo",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3131,
+      "commodity": "🎃 Pumpkin",
+      "variety": "Decorative (Painted)",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3132,
+      "commodity": "🎃 Pumpkin",
+      "variety": "White",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3133,
+      "commodity": "🎃 Pumpkin",
+      "variety": "White - Mini",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3134,
+      "commodity": "🎃 Pumpkin",
+      "variety": "Pie Pumpkin",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3142,
+      "commodity": "Squash",
+      "variety": "Carnival",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3143,
+      "commodity": "Squash",
+      "variety": "Acorn - baby",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3151,
+      "commodity": "🍅 Tomato",
+      "variety": "Vine Ripe, Regular - Red",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 3152,
+      "commodity": "🍊 Grapefruit",
+      "variety": "Melogold",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3153,
+      "commodity": "🍊 Orange",
+      "variety": "Delta Seedless",
+      "size": "Medium",
+      "aka": ""
+    },
+    {
+      "plu": 3156,
+      "commodity": "🍊 Orange",
+      "variety": "Midknight",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 3163,
+      "commodity": "🥬 Bok Choy",
+      "variety": "Shanghai",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3165,
+      "commodity": "Radicchio",
+      "variety": "Treviso",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3167,
+      "commodity": "🥬 Frisee",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3277,
+      "commodity": "🥦 Broccoli",
+      "variety": "Baby",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3281,
+      "commodity": "🍈 Melon",
+      "variety": "Watermelon - Orange, Seedless",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3283,
+      "commodity": "🍎 Apple",
+      "variety": "Honeycrisp",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 3287,
+      "commodity": "🍌 Banana",
+      "variety": "Hawaiian plantain",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3309,
+      "commodity": "🍊 Orange",
+      "variety": "Lima",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3312,
+      "commodity": "🍈 Passion Fruit",
+      "variety": "Granadilla - Yellow/Maracuja",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3320,
+      "commodity": "🥦 Broccoli",
+      "variety": "Romanesco",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3332,
+      "commodity": "🥬 Spinach",
+      "variety": "Baby",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3358,
+      "commodity": "🍒 Cherries",
+      "variety": "Regular/Red/Black",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 3379,
+      "commodity": "🍍 Pineapple",
+      "variety": "Mini",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3380,
+      "commodity": "🍍 Pineapple",
+      "variety": "Perola",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3389,
+      "commodity": "🍊 Tangerine/Mandarin",
+      "variety": "Satsuma",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3392,
+      "commodity": "Asparagus",
+      "variety": "Green - Bunch",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3393,
+      "commodity": "Asparagus",
+      "variety": "White - Bunch",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3394,
+      "commodity": "Asparagus",
+      "variety": "Purple - Bunch",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3413,
+      "commodity": "🌶️ Peppers",
+      "variety": "Tabasco",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3421,
+      "commodity": "🍈 Melon",
+      "variety": "Watermelon - Mini Seedless",
+      "size": "3-7 LBS",
+      "aka": ""
+    },
+    {
+      "plu": 3423,
+      "commodity": "🍅 Tomato",
+      "variety": "Heirloom",
+      "size": "All Sizes",
+      "aka": "Varieties include but are not limited to: Amish Salad, Anna Russian, Aunt Ruby's Yellow Cherry, Big Italian Plum, Black Plum, Black Prince, Black Zebra, Brandywine, Dr. Caroline, Earl of Edgecomb, Eva Purple Ball, Flamme, Green Zebra, Hawaiian Pineapple"
+    },
+    {
+      "plu": 3438,
+      "commodity": "🍎 Apple",
+      "variety": "Ambrosia",
+      "size": "All other sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3439,
+      "commodity": "🍑 Nectarine",
+      "variety": "White Flesh Flat",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3440,
+      "commodity": "Pomegranate",
+      "variety": "Regular",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 3626,
+      "commodity": "🍋 Lemon",
+      "variety": "Meyer",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3632,
+      "commodity": "🍊 Tangerine/Mandarin",
+      "variety": "Dekopon/Sumo Citrus",
+      "size": "All Sizes",
+      "aka": "Shiranui/Hallabong/Sumo Citrus®"
+    },
+    {
+      "plu": 4011,
+      "commodity": "🍌 Banana",
+      "variety": "Yellow (includes Cavendish)",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4012,
+      "commodity": "🍊 Orange",
+      "variety": "Navel",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 4013,
+      "commodity": "🍊 Orange",
+      "variety": "Navel",
+      "size": "Small",
+      "aka": ""
+    },
+    {
+      "plu": 4014,
+      "commodity": "🍊 Orange",
+      "variety": "Valencia",
+      "size": "Small",
+      "aka": ""
+    },
+    {
+      "plu": 4017,
+      "commodity": "🍎 Apple",
+      "variety": "Granny Smith",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 4022,
+      "commodity": "🍇 Grapes",
+      "variety": "Green Seedless - Peerlette/Thompson",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4023,
+      "commodity": "🍇 Grapes",
+      "variety": "Red Seedless - Flame/Ruby/Emperatriz",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4030,
+      "commodity": "Kiwifruit",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4032,
+      "commodity": "🍈 Melon",
+      "variety": "Watermelon - Red, Seedless",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4034,
+      "commodity": "🍈 Melon",
+      "variety": "Honeydew",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 4035,
+      "commodity": "🍑 Nectarine",
+      "variety": "Yellow Flesh",
+      "size": "Small",
+      "aka": ""
+    },
+    {
+      "plu": 4038,
+      "commodity": "🍑 Peach",
+      "variety": "Yellow Flesh",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 4045,
+      "commodity": "🍒 Cherries",
+      "variety": "Regular/Red/Black",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4046,
+      "commodity": "🥑 Avocado",
+      "variety": "Hass",
+      "size": "Small",
+      "aka": ""
+    },
+    {
+      "plu": 4048,
+      "commodity": "🍋‍🟩 Lime",
+      "variety": "Regular (incl. Persian, Tahiti & Bearss)",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4050,
+      "commodity": "🍈 Melon",
+      "variety": "Cantaloupe/Rockmelon",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 4053,
+      "commodity": "🍋 Lemon",
+      "variety": "Regular",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 4054,
+      "commodity": "🫐 Berries",
+      "variety": "Raspberries - Red",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4056,
+      "commodity": "🍇 Grapes",
+      "variety": "Blue/Black Seedless",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4060,
+      "commodity": "🥦 Broccoli",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4061,
+      "commodity": "🥬 Lettuce",
+      "variety": "Iceberg",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4062,
+      "commodity": "🥒 Cucumber",
+      "variety": "Green/Ridge/Short",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4065,
+      "commodity": "🌶️ Peppers",
+      "variety": "Bell, Field Grown - Green",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 4066,
+      "commodity": "🫛 Beans",
+      "variety": "Green/French",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4067,
+      "commodity": "Squash",
+      "variety": "Zucchini/Courgette",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4068,
+      "commodity": "🧅 Onion",
+      "variety": "Green (Scallions)/Spring",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4069,
+      "commodity": "🥬 Cabbage",
+      "variety": "Green",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4070,
+      "commodity": "Celery",
+      "variety": "Bunch",
+      "size": "Small",
+      "aka": ""
+    },
+    {
+      "plu": 4072,
+      "commodity": "🥔 Potato",
+      "variety": "Russet",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4073,
+      "commodity": "🥔 Potato",
+      "variety": "Red",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4074,
+      "commodity": "🍠 Sweet Potato/Yam",
+      "variety": "Red/Orangy Red Flesh",
+      "size": "Small",
+      "aka": ""
+    },
+    {
+      "plu": 4075,
+      "commodity": "🥬 Lettuce",
+      "variety": "Red Leaf",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4076,
+      "commodity": "🥬 Lettuce",
+      "variety": "Green Leaf",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4077,
+      "commodity": "🌽 Corn",
+      "variety": "Sweet Corn, White",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4078,
+      "commodity": "🌽 Corn",
+      "variety": "Sweet Corn, Yellow",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4079,
+      "commodity": "🥬 Cauliflower",
+      "variety": "Regular",
+      "size": "Small",
+      "aka": ""
+    },
+    {
+      "plu": 4080,
+      "commodity": "Asparagus",
+      "variety": "Green",
+      "size": "Small",
+      "aka": ""
+    },
+    {
+      "plu": 4081,
+      "commodity": "🍆 Eggplant",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4082,
+      "commodity": "🧅 Onion",
+      "variety": "Red",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4083,
+      "commodity": "🥔 Potato",
+      "variety": "White",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4084,
+      "commodity": "Artichoke",
+      "variety": "Regular",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 4085,
+      "commodity": "🍄‍🟫 Mushrooms",
+      "variety": "Regular",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 4087,
+      "commodity": "🍅 Tomato",
+      "variety": "Roma",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4088,
+      "commodity": "🌶️ Peppers",
+      "variety": "Bell, Field Grown - Red",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4090,
+      "commodity": "🥬 Spinach",
+      "variety": "Regular/Bunched",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4091,
+      "commodity": "🍠 Sweet Potato/Yam",
+      "variety": "White",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4093,
+      "commodity": "🧅 Onion",
+      "variety": "Yellow/Brown",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 4094,
+      "commodity": "🥕 Carrot",
+      "variety": "Bunch",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4095,
+      "commodity": "Turnip",
+      "variety": "Yellow",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4131,
+      "commodity": "🍎 Apple",
+      "variety": "Fuji",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 4135,
+      "commodity": "🍎 Apple",
+      "variety": "Gala",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 4147,
+      "commodity": "🍎 Apple",
+      "variety": "Jonagold",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 4159,
+      "commodity": "🧅 Onion",
+      "variety": "Vidalia",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4161,
+      "commodity": "🧅 Onion",
+      "variety": "Texas Sweet",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4164,
+      "commodity": "🧅 Onion",
+      "variety": "Maui",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4165,
+      "commodity": "🧅 Onion",
+      "variety": "California Sweet",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4218,
+      "commodity": "Apricot",
+      "variety": "Regular",
+      "size": "Small",
+      "aka": ""
+    },
+    {
+      "plu": 4225,
+      "commodity": "🥑 Avocado",
+      "variety": "Hass",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 4230,
+      "commodity": "🍌 Banana",
+      "variety": "Dominique",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4234,
+      "commodity": "🍌 Banana",
+      "variety": "Baby/Nino",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4235,
+      "commodity": "🍌 Banana",
+      "variety": "Plantain/Macho",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4237,
+      "commodity": "🍌 Banana",
+      "variety": "Yellow",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4239,
+      "commodity": "🫐 Berries",
+      "variety": "Blackberries",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4240,
+      "commodity": "🫐 Berries",
+      "variety": "Blueberries",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4242,
+      "commodity": "🫐 Berries",
+      "variety": "Cranberries",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4243,
+      "commodity": "🫐 Berries",
+      "variety": "Gooseberries",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4244,
+      "commodity": "🫐 Berries",
+      "variety": "Raspberries - Black",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4245,
+      "commodity": "🫐 Berries",
+      "variety": "Raspberries - Golden",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4258,
+      "commodity": "🍒 Cherries",
+      "variety": "Golden/Rainier/White",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4266,
+      "commodity": "Figs",
+      "variety": "Black",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4267,
+      "commodity": "Figs",
+      "variety": "Brown",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4268,
+      "commodity": "Figs",
+      "variety": "White/Green",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4270,
+      "commodity": "🍇 Grapes",
+      "variety": "Blue/Black Seeded (Ribier/Exotic/Niabel)",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4271,
+      "commodity": "🍇 Grapes",
+      "variety": "Champagne",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4272,
+      "commodity": "🍇 Grapes",
+      "variety": "Concord",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4273,
+      "commodity": "🍇 Grapes",
+      "variety": "Red Seeded (Cardinal/Emperor/Queen/Christmas Rose)",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4274,
+      "commodity": "🍇 Grapes",
+      "variety": "White/Green Seeded (All others not listed)",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4279,
+      "commodity": "🍊 Grapefruit",
+      "variety": "Pummelo - White",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4293,
+      "commodity": "🍊 Grapefruit",
+      "variety": "White",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 4299,
+      "commodity": "Guava",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4303,
+      "commodity": "Kumquat",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4305,
+      "commodity": "🍋‍🟩 Lime",
+      "variety": "Key (incl. Mexican & West Indian)",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4311,
+      "commodity": "🥭 Mango",
+      "variety": "Green (Includes Keitt and Francis)",
+      "size": "Small",
+      "aka": "(Includes Keitt and Francis varieties)"
+    },
+    {
+      "plu": 4312,
+      "commodity": "🥭 Mango",
+      "variety": "Yellow (Includes Oro, Ataulfo/Honey Manila)",
+      "size": "Small",
+      "aka": ""
+    },
+    {
+      "plu": 4317,
+      "commodity": "🍈 Melon",
+      "variety": "Canary/Yellow Honeydew",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4323,
+      "commodity": "🫐 Berries",
+      "variety": "Strawberries",
+      "size": "Bulk",
+      "aka": ""
+    },
+    {
+      "plu": 4325,
+      "commodity": "🍈 Melon",
+      "variety": "French Breakfast",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4326,
+      "commodity": "🍈 Melon",
+      "variety": "Galia",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4334,
+      "commodity": "🍈 Melon",
+      "variety": "Persian",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4335,
+      "commodity": "🍈 Melon",
+      "variety": "Prince",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4336,
+      "commodity": "🍈 Melon",
+      "variety": "Santa Claus",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4381,
+      "commodity": "🍊 Orange",
+      "variety": "Blood",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4388,
+      "commodity": "🍊 Orange",
+      "variety": "Valencia",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 4397,
+      "commodity": "🍈 Passion Fruit",
+      "variety": "Purple",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4409,
+      "commodity": "🍐 Pear",
+      "variety": "Bartlett/Williams/WBC",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 4411,
+      "commodity": "🍐 Pear",
+      "variety": "Bosc/Beurre Bosc",
+      "size": "Small",
+      "aka": ""
+    },
+    {
+      "plu": 4416,
+      "commodity": "🍐 Pear",
+      "variety": "Anjou",
+      "size": "Large",
+      "aka": "D'Anjou"
+    },
+    {
+      "plu": 4421,
+      "commodity": "🍐 Pear",
+      "variety": "Packham/Packhams Triumph",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4424,
+      "commodity": "🍐 Pear",
+      "variety": "Winter Nelis/Honey",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4427,
+      "commodity": "🍅 Persimmon",
+      "variety": "Regular (American Persimmon)",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4428,
+      "commodity": "🍅 Persimmon",
+      "variety": "Japanese/Sharonfruit (Kaki)",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4430,
+      "commodity": "🍍 Pineapple",
+      "variety": "Regular",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 4432,
+      "commodity": "🍍 Pineapple",
+      "variety": "Jet Fresh",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 4442,
+      "commodity": "Plum",
+      "variety": "Yellow (Includes Golden Globe)",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 4445,
+      "commodity": "Pomegranate",
+      "variety": "Regular",
+      "size": "Small",
+      "aka": ""
+    },
+    {
+      "plu": 4447,
+      "commodity": "Quince",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4448,
+      "commodity": "Tamarind",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4449,
+      "commodity": "🍊 Tangerine/Mandarin",
+      "variety": "Sunburst",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4450,
+      "commodity": "🍊 Tangerine/Mandarin",
+      "variety": "Clementine",
+      "size": "All Sizes",
+      "aka": "Fortune/Cuties®/Halos®"
+    },
+    {
+      "plu": 4515,
+      "commodity": "Fennel",
+      "variety": "Florence/Sweet Fennel/Fennel Bulb",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4527,
+      "commodity": "🫛 Beans",
+      "variety": "Chinese Long/Snake",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4528,
+      "commodity": "🫛 Beans",
+      "variety": "Fava/Broad",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4529,
+      "commodity": "🫛 Beans",
+      "variety": "Lima",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4530,
+      "commodity": "🫛 Beans",
+      "variety": "Pole/Runner/Stick",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4531,
+      "commodity": "🫛 Beans",
+      "variety": "Purple Hull",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4532,
+      "commodity": "🫛 Beans",
+      "variety": "Shell",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4533,
+      "commodity": "🫛 Beans",
+      "variety": "Wax/Yellow",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4534,
+      "commodity": "🫛 Beans",
+      "variety": "Winged",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4544,
+      "commodity": "🥬 Bok Choy",
+      "variety": "Small/Baby",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4545,
+      "commodity": "🥬 Bok Choy",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4547,
+      "commodity": "🥦 Broccoli",
+      "variety": "Broccoli Rabe (Italian Rapini)/ Chinese Broccoli (GAI LAN)",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4548,
+      "commodity": "🥦 Broccoli",
+      "variety": "Florettes",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4550,
+      "commodity": "Brussels Sprouts",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4552,
+      "commodity": "🥬 Cabbage",
+      "variety": "Chinese/Napa/Wong Bok",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4554,
+      "commodity": "🥬 Cabbage",
+      "variety": "Red",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4555,
+      "commodity": "🥬 Cabbage",
+      "variety": "Savoy, Green",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4560,
+      "commodity": "🥕 Carrot",
+      "variety": "Baby",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4562,
+      "commodity": "🥕 Carrot",
+      "variety": "Loose",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4566,
+      "commodity": "🥬 Cauliflower",
+      "variety": "Florettes",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4567,
+      "commodity": "🥬 Cauliflower",
+      "variety": "Green",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4568,
+      "commodity": "🥬 Cauliflower",
+      "variety": "Purple",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4572,
+      "commodity": "🥬 Cauliflower",
+      "variety": "Regular",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 4573,
+      "commodity": "🥬 Cauliflower",
+      "variety": "Baby",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4584,
+      "commodity": "🥭 Mango",
+      "variety": "Green (Includes Keitt and Francis)",
+      "size": "Large",
+      "aka": "Keitt and Francis varieties"
+    },
+    {
+      "plu": 4585,
+      "commodity": "🫚 Roots",
+      "variety": "Celery Root",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4586,
+      "commodity": "🥬 Chard",
+      "variety": "Green",
+      "size": "All Sizes",
+      "aka": "Swiss Chard/Silverbeet"
+    },
+    {
+      "plu": 4587,
+      "commodity": "🥬 Chard",
+      "variety": "Red",
+      "size": "All Sizes",
+      "aka": "Swiss Chard/Silverbeet"
+    },
+    {
+      "plu": 4589,
+      "commodity": "🌽 Corn",
+      "variety": "Sweet Corn, Baby",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4590,
+      "commodity": "🌽 Corn",
+      "variety": "Sweet Corn, Bi-Color",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4592,
+      "commodity": "🥒 Cucumber",
+      "variety": "Armenian",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4593,
+      "commodity": "🥒 Cucumber",
+      "variety": "English",
+      "size": "All Sizes",
+      "aka": "Hot House/Long Seedless/Telegraph/Continental"
+    },
+    {
+      "plu": 4594,
+      "commodity": "🥒 Cucumber",
+      "variety": "Japanese/White",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4595,
+      "commodity": "🥒 Cucumber",
+      "variety": "Lemon",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4596,
+      "commodity": "🥒 Cucumber",
+      "variety": "Pickling",
+      "size": "All Sizes",
+      "aka": "Gherkin"
+    },
+    {
+      "plu": 4598,
+      "commodity": "Daikon",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": "Japanese Radish"
+    },
+    {
+      "plu": 4599,
+      "commodity": "🍆 Eggplant",
+      "variety": "Baby",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4601,
+      "commodity": "🍆 Eggplant",
+      "variety": "Japanese",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4602,
+      "commodity": "🍆 Eggplant",
+      "variety": "White",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4608,
+      "commodity": "🧄 Garlic",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4609,
+      "commodity": "🧄 Garlic",
+      "variety": "Elephant",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4612,
+      "commodity": "🫚 Roots",
+      "variety": "Ginger",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4614,
+      "commodity": "🥬 Greens",
+      "variety": "Collard",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4615,
+      "commodity": "🥬 Greens",
+      "variety": "Dandelion",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4616,
+      "commodity": "🥬 Greens",
+      "variety": "Mustard (Synonymous with Gai (Gui) Choy)",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4619,
+      "commodity": "🥬 Greens",
+      "variety": "Turnip",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4625,
+      "commodity": "🫚 Roots",
+      "variety": "Horseradish",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4626,
+      "commodity": "🧅 Jicama/Yam Bean",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4627,
+      "commodity": "Kale",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4628,
+      "commodity": "Kohlrabi",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4629,
+      "commodity": "Leek",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4630,
+      "commodity": "Leek",
+      "variety": "Baby",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4632,
+      "commodity": "🥬 Lettuce",
+      "variety": "Boston/Butter",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4634,
+      "commodity": "🥬 Lettuce",
+      "variety": "Iceberg",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4639,
+      "commodity": "🥬 Lettuce",
+      "variety": "Mache",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4640,
+      "commodity": "🥬 Lettuce",
+      "variety": "Romaine/Cos",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4647,
+      "commodity": "🍄‍🟫 Mushrooms",
+      "variety": "Chanterelle",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4648,
+      "commodity": "🍄‍🟫 Mushrooms",
+      "variety": "Cremini",
+      "size": "All Sizes",
+      "aka": "Brown/Swiss Brown"
+    },
+    {
+      "plu": 4649,
+      "commodity": "🍄‍🟫 Mushrooms",
+      "variety": "Oyster",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4650,
+      "commodity": "🍄‍🟫 Mushrooms",
+      "variety": "Portabella",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4651,
+      "commodity": "🍄‍🟫 Mushrooms",
+      "variety": "Shiitake",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4655,
+      "commodity": "Okra",
+      "variety": "Regular (Green)",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4656,
+      "commodity": "Okra",
+      "variety": "Chinese",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4657,
+      "commodity": "Okra",
+      "variety": "Red",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4662,
+      "commodity": "🧅 Onion",
+      "variety": "Shallots",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4663,
+      "commodity": "🧅 Onion",
+      "variety": "White",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4671,
+      "commodity": "🫚 Roots",
+      "variety": "Parsley Root",
+      "size": "All Sizes",
+      "aka": "Hamburg Parsley"
+    },
+    {
+      "plu": 4672,
+      "commodity": "Parsnip",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4673,
+      "commodity": "🫛 Peas",
+      "variety": "Blackeyed",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4674,
+      "commodity": "🫛 Peas",
+      "variety": "Green",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4675,
+      "commodity": "🫛 Peas",
+      "variety": "Sugar Snap",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4677,
+      "commodity": "🌶️ Peppers",
+      "variety": "Anaheim (Green and Red)",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4680,
+      "commodity": "🌶️ Peppers",
+      "variety": "Bell, Field Grown - Golden (Yellow)",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4688,
+      "commodity": "🌶️ Peppers",
+      "variety": "Bell, Greenhouse - Red",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4693,
+      "commodity": "🌶️ Peppers",
+      "variety": "Jalapeno",
+      "size": "All Sizes",
+      "aka": "Mexican Green"
+    },
+    {
+      "plu": 4694,
+      "commodity": "🌶️ Peppers",
+      "variety": "Jalapeno - Red",
+      "size": "All Sizes",
+      "aka": "Mexican Red"
+    },
+    {
+      "plu": 4705,
+      "commodity": "🌶️ Peppers",
+      "variety": "Poblano",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4709,
+      "commodity": "🌶️ Peppers",
+      "variety": "Serrano",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4723,
+      "commodity": "🥔 Potato",
+      "variety": "Creamer - Red",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4724,
+      "commodity": "🥔 Potato",
+      "variety": "Creamer - White",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4727,
+      "commodity": "🥔 Potato",
+      "variety": "Yellow",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4734,
+      "commodity": "🎃 Pumpkin",
+      "variety": "Mini",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4735,
+      "commodity": "🎃 Pumpkin",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4747,
+      "commodity": "🧅 Rutabaga (Swede)",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4751,
+      "commodity": "Squash",
+      "variety": "Acorn - Golden",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4759,
+      "commodity": "Squash",
+      "variety": "Butternut",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4761,
+      "commodity": "Squash",
+      "variety": "Chayote/Choko",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4763,
+      "commodity": "Squash",
+      "variety": "Delicata/Sweet Potato",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4765,
+      "commodity": "Squash",
+      "variety": "Gem",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4769,
+      "commodity": "Squash",
+      "variety": "Kabocha",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4776,
+      "commodity": "Squash",
+      "variety": "Spaghetti",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4782,
+      "commodity": "Squash",
+      "variety": "Yellow - Straightneck",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4783,
+      "commodity": "Bitter Melon/Bitter Gourd, Foo Qua",
+      "variety": "Foo Qua",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4794,
+      "commodity": "🫚 Roots",
+      "variety": "Taro Root (Dasheen)",
+      "size": "Small",
+      "aka": ""
+    },
+    {
+      "plu": 4885,
+      "commodity": "Basil",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4889,
+      "commodity": "Cilantro",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": "Chinese Parsley/Coriander"
+    },
+    {
+      "plu": 4891,
+      "commodity": "Dill",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4894,
+      "commodity": "Lemongrass",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4896,
+      "commodity": "Mint",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4899,
+      "commodity": "Parsley",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": "Curly Parsley"
+    },
+    {
+      "plu": 4901,
+      "commodity": "Parsley",
+      "variety": "Italian",
+      "size": "All Sizes",
+      "aka": "Continental/French"
+    },
+    {
+      "plu": 4903,
+      "commodity": "Rosemary",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4904,
+      "commodity": "Sage",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4907,
+      "commodity": "Thyme",
+      "variety": "Regular",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 4959,
+      "commodity": "🥭 Mango",
+      "variety": "Red (Includes Kent, Edward, Hayden)",
+      "size": "Large",
+      "aka": ""
+    },
+    {
+      "plu": 3462,
+      "commodity": "Chives",
+      "variety": "Garlic/Chinese",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3474,
+      "commodity": "🍠 Sweet Potato/Yam",
+      "variety": "Saffron",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3475,
+      "commodity": "Mint",
+      "variety": "Peppermint",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3509,
+      "commodity": "🥑 Avocado",
+      "variety": "Gem",
+      "size": "All Sizes",
+      "aka": ""
+    },
+    {
+      "plu": 3545,
+      "commodity": "🍋 Lemon",
+      "variety": "Seedless",
+      "size": "Large",
+      "aka": "Wonderful® Seedless"
+    }
+]

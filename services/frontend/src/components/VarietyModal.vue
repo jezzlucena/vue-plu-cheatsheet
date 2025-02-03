@@ -20,7 +20,7 @@ function handleSubmit() {
   if (!commodity.value || !varietyName.value || !plu.value) return;
 
   props.onSubmit({
-    id: rawVariety?.id || 1,
+    _id: rawVariety?._id || "undefined",
     commodity: commodity.value,
     variety: varietyName.value,
     plu: plu.value,
@@ -31,7 +31,7 @@ function handleSubmit() {
 
 function handleDelete() {
   props.onDelete({
-    id: rawVariety?.id || 1,
+    _id: rawVariety?._id || "undefined",
     commodity: commodity.value || "",
     variety: varietyName.value || "",
     plu: plu.value || "",
