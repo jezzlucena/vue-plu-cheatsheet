@@ -1,37 +1,34 @@
-import './env.js';
 import Commodity from './models/Commodity.js';
 import cors from 'cors';
-import express from 'express';
+import express, { Express, Request, Response } from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
+dotenv.config();
 
-const app = express();
-const jsonParser = bodyParser.json();
+const app: Express = express();
 
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/commodities');
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 db.once('open', async () => {
     console.log('Connected to MongoDB');
 });
   
-var whitelist = ['http://localhost:8080']
-var corsOptionsDelegate = function (req, callback) {
-  var corsOptions;
-  if (whitelist.indexOf(req.header('Origin')) !== -1) {
-    corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
-  }else{
-    corsOptions = { origin: false } // disable CORS for this request
-  }
-  callback(null, corsOptions) // callback expects two parameters: error and options
-}
+const allowedOrigins = ['http://localhost:8080'];
+const corsOptions: cors.CorsOptions = {
+  origin: allowedOrigins
+};
 
-app.use(cors(corsOptionsDelegate));
+app.use(cors(corsOptions));
+
+app.use(express.json());
+app.use(bodyParser.json());
 
 /**
  * Retrieve all commodities
  */
-app.get('/commodities', async (_, res) => {
+app.get('/commodities', async (_, res: Response) => {
     try {
         const commodities = await Commodity.find({});
         res.json(commodities);
@@ -43,7 +40,7 @@ app.get('/commodities', async (_, res) => {
 /**
  * Retrieve a commodity by ID
  */
-app.get('/commodities/:id', jsonParser, async (req, res) => {
+app.get('/commodities/:id', async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
         const commodity = await Commodity.findOne({ _id: id });
@@ -54,7 +51,7 @@ app.get('/commodities/:id', jsonParser, async (req, res) => {
             res.status(404).send("Commodity not found");
         }
     } catch (error) {
-        if (error.kind === 'ObjectId') res.status(400).send("Invalid Commodity ID");
+        if (error instanceof mongoose.Error.CastError  && error.path === '_id') res.status(400).send("Invalid Commodity ID");
         else res.status(500).send("Error retrieving Commodity");
     }
 });
@@ -62,10 +59,10 @@ app.get('/commodities/:id', jsonParser, async (req, res) => {
 /**
  * Create new commodity
  */
-app.post('/commodities', jsonParser, (req, res) => {
+app.post('/commodities', (req: Request, res: Response) => {
     try {
-        const _id = new mongoose.Types.ObjectId();
-        const commodity = { ...req.body, _id };
+        const id = new mongoose.Types.ObjectId();
+        const commodity = { ...req.body, _id: id };
 
         const newCommodity = new Commodity(commodity);
         newCommodity.save();
@@ -79,18 +76,18 @@ app.post('/commodities', jsonParser, (req, res) => {
 /**
  * Update commodity
  */
-app.post('/commodities/:id', jsonParser, async (req, res) => {
+app.post('/commodities/:id', async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
         const commodity = await Commodity.findOneAndUpdate({ _id: id }, req.body);
 
         if (commodity) {
-            res.json(await Commodity.findOne({ id }));
+            res.json(await Commodity.findOne({ _id: id }));
         } else {
             res.status(404).send("Commodity not found");
         }
     } catch (error) {
-        if (error.kind === 'ObjectId') res.status(400).send("Invalid Commodity ID");
+        if (error instanceof mongoose.Error.CastError && error.path === '_id') res.status(400).send("Invalid Commodity ID");
         else res.status(500).send("Error updating Commodity");
     }
 });
@@ -98,7 +95,7 @@ app.post('/commodities/:id', jsonParser, async (req, res) => {
 /**
  * Delete commodity
  */
-app.delete('/commodities/:id', jsonParser, async (req, res) => {
+app.delete('/commodities/:id', async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
         const commodity = await Commodity.findOneAndDelete({ _id: id }, req.body);
@@ -109,7 +106,7 @@ app.delete('/commodities/:id', jsonParser, async (req, res) => {
             res.status(404).send("Commodity not found");
         }
     } catch (error) {
-        if (error.kind === 'ObjectId') res.status(400).send("Invalid Commodity ID");
+        if (error instanceof mongoose.Error.CastError  && error.path === '_id') res.status(400).send("Invalid Commodity ID");
         else res.status(500).send("Error deleting Commodity");
     }
 });
