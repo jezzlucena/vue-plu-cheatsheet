@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, toRaw } from 'vue';
+import { toast } from 'vue3-toastify';
 
 const props = defineProps<{
   variety?: Variety,
@@ -17,7 +18,10 @@ const size = ref(rawVariety?.size || "");
 const aka = ref(rawVariety?.aka || "");
 
 function handleSubmit() {
-  if (!commodity.value || !varietyName.value || !plu.value) return;
+  if (!commodity.value || !varietyName.value || !/^\d{1,5}$/.test(plu.value)) {
+    toast.error("Please fix required fields.", { position: toast.POSITION.BOTTOM_RIGHT, autoClose: 2000 })
+    return;
+  }
 
   props.onSubmit({
     _id: rawVariety?._id || "undefined",
@@ -66,7 +70,7 @@ function handleDelete() {
       <div class="row">
         <div class="column">
           <label class="label required">PLU</label>
-          <input :class="{ required: true, valid: plu !== '' }" type="text" name="plu" v-model="plu" placeholder="E.g. 4131">
+          <input :class="{ required: true, valid: /^\d{1,5}$/.test(plu) }" type="text" pattern="^\d{1,5}$" name="plu" v-model="plu" placeholder="E.g. 4131">
         </div>
         <div class="column">
           <label class="label">Size</label>
@@ -81,7 +85,7 @@ function handleDelete() {
         <div class="spacer"></div>
         <button class="submit" type="submit">Save</button>
         <button class="cancel" @click.prevent="onClose">Cancel</button>
-        <button class="delete" @click.prevent="handleDelete">Delete</button>
+        <button v-if="rawVariety" class="delete" @click.prevent="handleDelete">Delete</button>
       </div>
       </form>
     </div>
