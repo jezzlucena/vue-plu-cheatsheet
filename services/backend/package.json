@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "tsx watch ./src/app.ts",
-    "populate": "tsx ./src/populate.ts",
-    "build": "npx tsc",
+    "dev": "npx tsx watch ./src/app.ts",
+    "populate": "npx tsx ./src/populate.ts",
+    "build": "npx tsc --build ./tsconfig.json",
     "start": "node ./dist/app.js",
     "test": "mocha ./src/test/app.test.ts --exit"
   },

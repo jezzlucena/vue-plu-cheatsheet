@@ -50,7 +50,7 @@ const fetchData = async () => {
   commodityDict.value = {};
 
   try {
-    const response = await axios.get("http://localhost:5050/commodities");
+    const response = await axios.get("http://64.23.146.35:5050/commodities");
     data.value = response.data;
   } finally {
     nameFuse.setCollection(data.value);
@@ -130,7 +130,7 @@ async function saveVariety(variety: Variety) {
   
   try {
     if (activeVariety.value) {
-      const response = await axios.post(`http://localhost:5050/commodities/${variety._id}/`, variety);
+      const response = await axios.post(`http://64.23.146.35:5050/commodities/${variety._id}/`, variety);
       const commodity = response.data;
 
       const index = data.value.findIndex((entry) => entry._id === activeVariety.value?._id);
@@ -138,7 +138,7 @@ async function saveVariety(variety: Variety) {
 
       toast("Variety updated successfully!", TOAST_OPTIONS);
     } else {
-      const response = await axios.post(`http://localhost:5050/commodities/`, variety);
+      const response = await axios.post(`http://64.23.146.35:5050/commodities/`, variety);
       const commodity = response.data;
 
       data.value.push(commodity);
@@ -146,6 +146,7 @@ async function saveVariety(variety: Variety) {
       toast("Variety created successfully!", TOAST_OPTIONS);
     }
   } catch(error) {
+    console.log(error);
     if (activeVariety.value) toast.error("Error updating Variety!", TOAST_OPTIONS);
     else toast.error("Error creating Variety!", TOAST_OPTIONS);
   } finally {
@@ -164,13 +165,14 @@ async function deleteVariety(variety: Variety) {
   isLoading.value = true;
   
   try {
-    await axios.delete(`http://localhost:5050/commodities/${variety._id}/`);
+    await axios.delete(`http://64.23.146.35:5050/commodities/${variety._id}/`);
 
     const index = data.value.findIndex((entry) => entry._id === activeVariety.value?._id);
     data.value.splice(index, 1);
 
     toast("Variety deleted successfully!", TOAST_OPTIONS);
   } catch(error) {
+    console.log(error);
     toast.error("Error deleting Variety!", TOAST_OPTIONS);
   } finally {
     nameFuse.setCollection(data.value);

@@ -15,7 +15,7 @@ db.once('open', async () => {
     console.log('Connected to MongoDB');
 });
   
-const allowedOrigins = ['http://localhost:8080'];
+const allowedOrigins = ['http://localhost:8080', 'http://64.23.146.35:8080', 'http://jezzlucena.com:8080'];
 const corsOptions: cors.CorsOptions = {
   origin: allowedOrigins
 };
