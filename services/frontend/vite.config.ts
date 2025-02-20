@@ -21,10 +21,12 @@ export default defineConfig({
   },
   server: {
     host: '0.0.0.0',
-    port: 8082
+    port: 8082,
+    allowedHosts: ['.jezzlucena.com', '.jezzlucena.xyz']
   },
   preview: {
     host: '0.0.0.0',
-    port: 8082
+    port: 8082,
+    allowedHosts: ['.jezzlucena.com', '.jezzlucena.xyz']
   }
 })
