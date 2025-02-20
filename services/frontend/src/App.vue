@@ -49,8 +49,10 @@ const fetchData = async () => {
   isLoading.value = true;
   commodityDict.value = {};
 
+  console.log(import.meta.env.VITE_BACKEND_URL);
+
   try {
-    const response = await axios.get("http://143.198.102.62:5052/commodities");
+    const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/commodities`);
     data.value = response.data;
   } finally {
     nameFuse.setCollection(data.value);
@@ -130,7 +132,7 @@ async function saveVariety(variety: Variety) {
   
   try {
     if (activeVariety.value) {
-      const response = await axios.post(`http://143.198.102.62:5052/commodities/${variety._id}/`, variety);
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/commodities/${variety._id}/`, variety);
       const commodity = response.data;
 
       const index = data.value.findIndex((entry) => entry._id === activeVariety.value?._id);
@@ -138,7 +140,7 @@ async function saveVariety(variety: Variety) {
 
       toast("Variety updated successfully!", TOAST_OPTIONS);
     } else {
-      const response = await axios.post(`http://143.198.102.62:5052/commodities/`, variety);
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/commodities/`, variety);
       const commodity = response.data;
 
       data.value.push(commodity);
@@ -165,7 +167,7 @@ async function deleteVariety(variety: Variety) {
   isLoading.value = true;
   
   try {
-    await axios.delete(`http://143.198.102.62:5052/commodities/${variety._id}/`);
+    await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/commodities/${variety._id}/`);
 
     const index = data.value.findIndex((entry) => entry._id === activeVariety.value?._id);
     data.value.splice(index, 1);
