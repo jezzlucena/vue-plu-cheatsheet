@@ -15,7 +15,7 @@ db.once('open', async () => {
     console.log('Connected to MongoDB');
 });
   
-const allowedOrigins = ['http://localhost:8082', 'http://143.198.102.62:8082', 'http://jezzlucena.com:8082', 'http://jezzlucena.xyz:8082', 'http://plu.jezzlucena.com'];
+const allowedOrigins = ['http://localhost:8082', 'http://143.198.102.62:8082', 'http://jezzlucena.com:8082', 'http://jezzlucena.xyz:8082', 'https://plu.jezzlucena.com'];
 const corsOptions: cors.CorsOptions = {
   origin: allowedOrigins
 };
