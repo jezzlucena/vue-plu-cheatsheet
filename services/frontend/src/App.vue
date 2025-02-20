@@ -49,8 +49,6 @@ const fetchData = async () => {
   isLoading.value = true;
   commodityDict.value = {};
 
-  console.log(import.meta.env.VITE_BACKEND_URL);
-
   try {
     const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/commodities`);
     data.value = response.data;
