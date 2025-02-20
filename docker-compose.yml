@@ -7,7 +7,7 @@ services:
       - ./services/backend:/app
       - '/app/node_modules'
     ports:
-      - 5050:5050
+      - 5052:5052
 
   frontend:
     build: ./services/frontend
@@ -15,4 +15,4 @@ services:
       - './services/frontend:/app'
       - '/app/node_modules'
     ports:
-      - 8080:8080
+      - 8082:8082

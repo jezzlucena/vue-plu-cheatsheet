@@ -15,7 +15,7 @@ db.once('open', async () => {
     console.log('Connected to MongoDB');
 });
   
-const allowedOrigins = ['http://localhost:8080', 'http://64.23.146.35:8080', 'http://jezzlucena.com:8080'];
+const allowedOrigins = ['http://localhost:8082', 'http://143.198.102.62:8082', 'http://jezzlucena.com:8082', 'http://jezzlucena.xyz:8082'];
 const corsOptions: cors.CorsOptions = {
   origin: allowedOrigins
 };
@@ -111,7 +111,7 @@ app.delete('/commodities/:id', async (req: Request, res: Response) => {
     }
 });
 
-const server = app.listen(process.env.PORT || 5050);
+const server = app.listen(process.env.PORT || 5052);
 
 function closeDBConnection() {
     db.close().then(() => {
