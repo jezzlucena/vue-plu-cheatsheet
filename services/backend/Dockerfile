@@ -5,8 +5,11 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 
 COPY package.json .
-RUN rm -rf node_modules
-RUN rm -rf package-lock.json
-RUN npm install
 
-CMD ["npm", "run", "dev"]
+RUN --mount=type=cache,target=/root/.npm npm install
+
+COPY . .
+
+RUN npm run build
+
+CMD ["npm", "run", "start"]
